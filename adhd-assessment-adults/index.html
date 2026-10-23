@@ -326,17 +326,41 @@
 
     <!-- ===== qEEG ===== -->
     <section class="section qeeg" aria-labelledby="qeeg-title">
-      <div class="wrap">
-        <div class="qeeg-frame">
-          <img class="reveal-img" src="img/qeeg.webp" alt="A woman wears a white qEEG headset while a technician shows her colourful brain maps on a screen" width="1400" height="939" loading="lazy">
-          <div class="qeeg-card">
-            <svg class="eeg-mini" viewBox="0 0 400 46" preserveAspectRatio="none" aria-hidden="true"><path id="eeg-mini" d=""/></svg>
-            <p class="kicker">Optional add-on</p>
-            <h2 id="qeeg-title" style="font-size:clamp(1.9rem,3vw,2.6rem)">See another layer with qEEG brain mapping</h2>
-            <p>qEEG is a painless recording of your brain's electrical activity. It is never used on its own to diagnose ADHD, but in selected cases it adds useful insight into attention, regulation and processing, and helps shape your recommendations.</p>
-            <p><strong>Add it to your assessment for £200</strong> (usually £350).</p>
-            <a class="btn btn-ghost" href="#book">Ask if it's right for you</a>
+      <img class="deco" src="img/leaf-willow.webp" alt="" width="800" height="800" style="width:340px;left:-80px;top:60px;opacity:.3" loading="lazy">
+      <div class="wrap qeeg-grid">
+        <div class="qeeg-media">
+          <div class="qeeg-video-frame">
+            <video class="qeeg-video" muted loop playsinline preload="none" poster="video/qeeg-poster.webp" aria-label="A clinician fits a qEEG brain mapping headset on a patient at the Refocus clinic in Manchester and starts the recording">
+              <source src="video/qeeg-720.mp4" type="video/mp4">
+            </video>
+            <div class="qeeg-controls">
+              <button class="vid-btn" type="button" data-vid-play aria-label="Play video">
+                <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+                <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>
+              </button>
+              <button class="vid-btn" type="button" data-vid-sound aria-label="Turn sound on" aria-pressed="false">
+                <svg class="i-muted" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                <svg class="i-sound" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              </button>
+            </div>
           </div>
+          <div class="qeeg-chip">
+            <svg class="eeg-mini" viewBox="0 0 400 46" preserveAspectRatio="none" aria-hidden="true"><path id="eeg-mini" d=""/></svg>
+            <strong>Filmed at our Manchester clinic</strong>
+            <span>A real qEEG brain mapping session</span>
+          </div>
+        </div>
+        <div class="qeeg-copy">
+          <p class="kicker">Optional add-on</p>
+          <h2 id="qeeg-title">See another layer with qEEG brain mapping</h2>
+          <p class="lede">qEEG is a painless recording of your brain's electrical activity. It is never used on its own to diagnose ADHD, but in selected cases it adds useful insight into attention, regulation and processing, and helps shape your recommendations.</p>
+          <ul class="check-list">
+            <li>A lightweight sensor headset is fitted while you sit comfortably</li>
+            <li>Your brain activity is recorded and turned into colour maps</li>
+            <li>Your clinician explains what the maps show and how they fit your assessment</li>
+          </ul>
+          <div class="qeeg-price"><span class="amt">£200</span><span>added to your assessment<br><s>usually £350</s></span></div>
+          <a class="btn btn-ghost" href="#book">Ask if it's right for you</a>
         </div>
       </div>
     </section>

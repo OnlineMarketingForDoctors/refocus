@@ -36,6 +36,39 @@
     }
   }
 
+  /* ---------- qEEG video: plays muted while in view ---------- */
+  var qVideo = document.querySelector('.qeeg-video');
+  if (qVideo) {
+    var qPlay = document.querySelector('[data-vid-play]');
+    var qSound = document.querySelector('[data-vid-sound]');
+    var userPaused = false;
+    qVideo.addEventListener('play', function () { qPlay.classList.add('is-playing'); qPlay.setAttribute('aria-label', 'Pause video'); });
+    qVideo.addEventListener('pause', function () { qPlay.classList.remove('is-playing'); qPlay.setAttribute('aria-label', 'Play video'); });
+    qPlay.addEventListener('click', function () {
+      userPaused = !qVideo.paused;
+      if (qVideo.paused) qVideo.play(); else qVideo.pause();
+    });
+    qSound.addEventListener('click', function () {
+      qVideo.muted = !qVideo.muted;
+      qSound.classList.toggle('is-on', !qVideo.muted);
+      qSound.setAttribute('aria-pressed', String(!qVideo.muted));
+      qSound.setAttribute('aria-label', qVideo.muted ? 'Turn sound on' : 'Turn sound off');
+      if (!qVideo.muted && qVideo.paused) { userPaused = false; qVideo.play(); }
+    });
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !userPaused) {
+            var attempt = qVideo.play();
+            if (attempt && attempt.catch) attempt.catch(function () {});
+          } else if (!e.isIntersecting) {
+            qVideo.pause();
+          }
+        });
+      }, { threshold: 0.4 }).observe(qVideo);
+    }
+  }
+
   var nav = document.getElementById('main-nav');
   var toggle = document.querySelector('.menu-toggle');
   function setMenu(open) {
