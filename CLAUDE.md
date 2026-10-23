@@ -9,6 +9,10 @@ Every change must keep the site no-indexed:
 - Do not add a `robots.txt` that disallows crawling. A crawler that is blocked from a page never sees its noindex tag, so the URL can still show up in search results.
 - Do not add a sitemap, and do not submit the site to search consoles.
 
+## Publishing
+
+Push every change straight to `main` as soon as it is done. Vercel deploys `main` to production automatically.
+
 ## Landing pages
 
 Each landing page lives in its own folder named after its slug (for example `adhd-assessment-adults/`). When you add a new landing page, also add a card for it to the list in the root `index.html`.
