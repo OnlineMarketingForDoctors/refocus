@@ -73,11 +73,6 @@
     }
     return d;
   }
-  var heroEeg = document.getElementById('eeg-path');
-  if (heroEeg) {
-    heroEeg.setAttribute('d', eegPath(1440, 90, 220, 7, true));
-    heroEeg.style.setProperty('--len', Math.ceil(heroEeg.getTotalLength()));
-  }
   var miniEeg = document.getElementById('eeg-mini');
   if (miniEeg) miniEeg.setAttribute('d', eegPath(400, 46, 90, 3, true));
 
