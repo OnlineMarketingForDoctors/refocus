@@ -207,6 +207,23 @@
     });
   }
 
+  /* ---------- Framework panels ---------- */
+  var fw = document.querySelector('[data-framework]');
+  if (fw) {
+    var fwPanels = Array.prototype.slice.call(fw.querySelectorAll('.fw-panel'));
+    var activate = function (panel) {
+      fwPanels.forEach(function (p) {
+        var on = p === panel;
+        p.classList.toggle('is-active', on);
+        p.querySelector('.fw-trigger').setAttribute('aria-expanded', String(on));
+      });
+    };
+    fwPanels.forEach(function (p) {
+      p.querySelector('.fw-trigger').addEventListener('click', function () { activate(p); });
+      p.addEventListener('mouseenter', function () { if (window.matchMedia('(hover: hover) and (min-width: 901px)').matches) activate(p); });
+    });
+  }
+
   /* ---------- Assessment tabs ---------- */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs .tab'));
   var stepImgs = document.querySelectorAll('[data-step-img]');
