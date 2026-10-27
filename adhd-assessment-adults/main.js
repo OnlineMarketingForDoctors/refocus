@@ -281,8 +281,23 @@
     parTick();
   }
 
-  /* ---------- Booking form ---------- */
-  var form = document.getElementById('booking-form');
+  /* ---------- Booking popup ---------- */
+  var modal = document.getElementById('book-modal');
+  if (modal && typeof modal.showModal === 'function') {
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('[data-book]');
+      if (trigger) {
+        e.preventDefault();
+        setMenu(false);
+        modal.showModal();
+        return;
+      }
+      if (e.target.closest('[data-close]') || e.target === modal) modal.close();
+    });
+  }
+
+  /* ---------- Enquiry form ---------- */
+  var form = document.getElementById('enquiry-form');
   if (form) {
     var status = form.querySelector('.form-status');
     var messages = {
@@ -290,7 +305,8 @@
       last_name: 'Enter your last name.',
       email: 'Enter an email address like name@example.com.',
       phone: 'Enter a phone number so we can call you.',
-      source: 'Choose how you heard about us.'
+      source: 'Choose how you heard about us.',
+      message: 'Type your question so we know how to help.'
     };
     function validate(el) {
       var field = el.closest('.field');
@@ -302,12 +318,12 @@
       el.setAttribute('aria-invalid', String(!ok));
       return ok;
     }
-    form.querySelectorAll('input[required], select[required]').forEach(function (el) {
+    form.querySelectorAll('.field input[required], .field select[required], .field textarea[required]').forEach(function (el) {
       el.addEventListener('blur', function () { if (el.value) validate(el); });
     });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var fields = Array.prototype.slice.call(form.querySelectorAll('.field input[required], .field select[required]'));
+      var fields = Array.prototype.slice.call(form.querySelectorAll('.field input[required], .field select[required], .field textarea[required]'));
       var firstBad = null;
       fields.forEach(function (el) { if (!validate(el) && !firstBad) firstBad = el; });
       var consent = form.querySelector('input[name="consent"]');
@@ -325,7 +341,7 @@
       var endpoint = form.getAttribute('data-endpoint');
       if (!endpoint) {
         status.className = 'form-status is-info';
-        status.innerHTML = 'Online requests are being set up. To book your free call now, ring <a href="tel:+441614707093">0161 470 7093</a> or email <a href="mailto:hello@refocushub.co.uk">hello@refocushub.co.uk</a>.';
+        status.innerHTML = 'Online enquiries are being set up. For now, please ring <a href="tel:+441614707093">0161 470 7093</a> or email <a href="mailto:hello@refocushub.co.uk">hello@refocushub.co.uk</a>.';
         status.hidden = false;
         return;
       }
@@ -340,7 +356,7 @@
           if (!res.ok) throw new Error(res.status);
           form.reset();
           status.className = 'form-status is-ok';
-          status.textContent = 'Thank you. Your request has been sent and our team will be in touch to arrange your call.';
+          status.textContent = 'Thank you. Your enquiry has been sent and our team will be in touch soon.';
         })
         .catch(function () {
           status.className = 'form-status is-error';
@@ -349,7 +365,7 @@
         .then(function () {
           status.hidden = false;
           btn.disabled = false;
-          btn.textContent = 'Request my free call';
+          btn.textContent = 'Send enquiry';
         });
     });
   }
