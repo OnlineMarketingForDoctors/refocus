@@ -405,7 +405,7 @@ p { margin: 0 0 1em; }
 .vid-btn .i-pause, .vid-btn .i-sound { display: none; }
 .vid-btn.is-playing .i-pause, .vid-btn.is-on .i-sound { display: block; }
 .vid-btn.is-playing .i-play, .vid-btn.is-on .i-muted { display: none; }
-.qeeg-chip { position: absolute; z-index: 2; right: -18%; bottom: 14%; width: 230px; background: #fff; border-radius: var(--r-md); padding: 16px 18px; box-shadow: var(--shadow-lift); }
+.qeeg-chip { position: absolute; z-index: 2; right: -18%; bottom: 24px; width: 230px; background: #fff; border-radius: var(--r-md); padding: 16px 18px; box-shadow: var(--shadow-lift); }
 .qeeg-chip .eeg-mini { width: 100%; height: 30px; margin-bottom: 8px; }
 .qeeg-chip .eeg-mini path { fill: none; stroke: var(--turquoise); stroke-width: 2; stroke-linecap: round; }
 .qeeg-chip strong { display: block; font-size: 0.98rem; line-height: 1.3; }
