@@ -489,17 +489,16 @@ p { margin: 0 0 1em; }
 
 /* ---------- Founder (portrait + quote) ---------- */
 .founder { background: var(--navy); color: #fff; overflow: hidden; }
-.founder-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
-.founder-media { position: relative; padding-bottom: 16%; }
-.founder-media .main { width: 82%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r-xl) var(--r-xl) var(--r-xl) 200px; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7); }
-.founder-media .satellite { position: absolute; right: 0; bottom: 0; width: 56%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--r-lg); border: 8px solid var(--navy); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.7); }
+.founder-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
+.founder-media { position: relative; }
+.founder-media .main { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; object-position: 40% center; border-radius: var(--r-xl) var(--r-xl) var(--r-xl) 200px; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7); }
 .founder blockquote { margin: 0; font-family: var(--serif); font-size: clamp(1.45rem, 2.4vw, 2.1rem); line-height: 1.35; font-weight: 400; color: #fff; }
 .founder blockquote p { color: #fff; }
 .founder .sig { margin-top: 28px; display: flex; flex-direction: column; gap: 2px; }
 .founder .sig strong { font-size: 1.15rem; }
 .founder .sig span { color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; }
 .founder .founder-body { color: rgba(255, 255, 255, 0.78); max-width: 60ch; }
-@media (max-width: 900px) { .founder-grid { grid-template-columns: 1fr; } .founder-media { max-width: 520px; } }
+@media (max-width: 900px) { .founder-grid { grid-template-columns: 1fr; } .founder-media { max-width: 640px; } }
 
 /* ---------- Outcome (full-bleed street) ---------- */
 .outcome { position: relative; min-height: 640px; display: flex; align-items: center; color: #fff; overflow: hidden; isolation: isolate; padding: clamp(90px, 10vw, 140px) 0; }
