@@ -17,23 +17,9 @@
 
   /* ---------- Hero video ---------- */
   var heroVideo = document.querySelector('.hero-video');
-  var videoToggle = document.querySelector('.video-toggle');
-  if (heroVideo && videoToggle) {
-    var setPaused = function (paused) {
-      videoToggle.classList.toggle('is-paused', paused);
-      videoToggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
-    };
-    videoToggle.hidden = false;
-    heroVideo.addEventListener('play', function () { setPaused(false); });
-    heroVideo.addEventListener('pause', function () { setPaused(true); });
-    videoToggle.addEventListener('click', function () {
-      if (heroVideo.paused) heroVideo.play(); else heroVideo.pause();
-    });
-    setPaused(true);
-    if (!reduceMotion) {
-      var attempt = heroVideo.play();
-      if (attempt && attempt.catch) attempt.catch(function () { setPaused(true); });
-    }
+  if (heroVideo && !reduceMotion) {
+    var attempt = heroVideo.play();
+    if (attempt && attempt.catch) attempt.catch(function () {});
   }
 
   /* ---------- qEEG video: plays muted while in view ---------- */

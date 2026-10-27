@@ -152,10 +152,6 @@ p { margin: 0 0 1em; }
 .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; color: #fff; overflow: hidden; isolation: isolate; background: var(--navy); }
 .hero-media { position: absolute; inset: 0; z-index: -2; }
 .hero-media video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-.video-toggle { position: absolute; right: clamp(16px, 3vw, 40px); bottom: clamp(90px, 10vw, 150px); z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center; color: #fff; background: rgba(0, 19, 49, 0.55); backdrop-filter: blur(6px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35); }
-.video-toggle svg { width: 18px; height: 18px; }
-.video-toggle .i-play, .video-toggle.is-paused .i-pause { display: none; }
-.video-toggle.is-paused .i-play { display: block; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(0, 19, 49, 0.96) 0%, rgba(0, 19, 49, 0.86) 34%, rgba(0, 19, 49, 0.25) 60%, rgba(0, 19, 49, 0) 75%), linear-gradient(0deg, rgba(0, 19, 49, 0.55), rgba(0, 19, 49, 0) 30%); }
 .hero-inner { width: min(100% - 2 * var(--gutter), 1400px); margin-inline: auto; padding: calc(var(--header-h) + 40px) 0 clamp(130px, 13vw, 190px); }
 .hero-copy { max-width: 620px; }
@@ -189,7 +185,6 @@ p { margin: 0 0 1em; }
   .hero { align-items: flex-end; }
   .hero { display: block; }
   .hero-media { bottom: auto; height: 62vh; }
-  .video-toggle { top: calc(var(--header-h) + 10px); bottom: auto; right: 16px; }
   .hero::before { background: linear-gradient(180deg, rgba(0, 19, 49, 0.55) 0%, rgba(0, 19, 49, 0) 22%, rgba(0, 19, 49, 0) 38vh, var(--navy) 62vh); }
   .hero-inner { padding-top: 54vh; padding-bottom: 120px; }
   .hero-points li { font-size: 1rem; }
@@ -600,3 +595,4 @@ p { margin: 0 0 1em; }
 /* ---------- Reveal (one gentle entrance for images only) ---------- */
 .js .reveal-img { clip-path: inset(8% 8% 8% 8% round var(--r-xl)); opacity: 0.4; transition: clip-path 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 1.1s ease; }
 .js .reveal-img.is-in { clip-path: inset(0 0 0 0 round 0); opacity: 1; }
+
