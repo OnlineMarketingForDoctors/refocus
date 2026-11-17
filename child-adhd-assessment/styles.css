@@ -613,6 +613,5 @@ p { margin: 0 0 1em; }
 body:has(.book-modal[open]) { overflow: hidden; }
 
 /* ---------- GoHighLevel enquiry form ---------- */
-.form-card.form-embed { padding: clamp(20px, 3vw, 32px); }
 /* form_embed.js makes the iframe 5px taller than the form, and the form leaves 17px under its button: pull both back in so the card has even padding */
 .form-embed iframe { display: block; width: 100%; min-height: 200px; margin-bottom: -22px; }
