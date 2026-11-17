@@ -26,10 +26,10 @@ Every HTML page must have this Google tag immediately after the opening `<head>`
 </script>
 ```
 
-The GTM container shows the main site's Silktide cookie banner but does not load its styles, so every page also needs this stylesheet straight after the tag:
+The GTM container injects the main site's Silktide cookie banner. It is switched off on these pages, so every page also needs this straight after the tag:
 
 ```html
-<link rel="stylesheet" href="https://refocushub.co.uk/wp-content/themes/hello-theme-child-master/cookie/silktide-consent-manager.css?ver=1.0.0">
+<style>#silktide-wrapper, #silktide-cookie-icon { display: none !important; }</style>
 ```
 
 ## Landing pages

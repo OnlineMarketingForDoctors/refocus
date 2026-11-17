@@ -7,8 +7,8 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
-<!-- Styles for the Silktide cookie banner that GTM loads from the main site -->
-<link rel="stylesheet" href="https://refocushub.co.uk/wp-content/themes/hello-theme-child-master/cookie/silktide-consent-manager.css?ver=1.0.0">
+<!-- GTM injects the main site's Silktide cookie banner; it is switched off on these pages -->
+<style>#silktide-wrapper, #silktide-cookie-icon { display: none !important; }</style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
