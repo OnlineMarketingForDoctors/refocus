@@ -13,6 +13,25 @@ Every change must keep the site no-indexed:
 
 Push every change straight to `main` as soon as it is done. Vercel deploys `main` to production automatically.
 
+## Tracking
+
+Every HTML page must have this Google tag immediately after the opening `<head>` tag:
+
+```html
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PMHDMPR2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+```
+
+The GTM container shows the main site's Silktide cookie banner but does not load its styles, so every page also needs this stylesheet straight after the tag:
+
+```html
+<link rel="stylesheet" href="https://refocushub.co.uk/wp-content/themes/hello-theme-child-master/cookie/silktide-consent-manager.css?ver=1.0.0">
+```
+
 ## Landing pages
 
 Each landing page lives in its own folder named after its slug (for example `adhd-assessment-adults/`). When you add a new landing page, also add a card for it to the list in the root `index.html`.
